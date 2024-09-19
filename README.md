@@ -1,0 +1,1 @@
+poetry run python recipeat/manage.py runserver
