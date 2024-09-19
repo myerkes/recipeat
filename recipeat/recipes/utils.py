@@ -16,6 +16,13 @@ class RecipeScraper:
 
     def ingredients(self):
         return self.scraper.ingredients()
+    
+    def parsed_ingredients(self):
+        ingredients = self.scraper.ingredients()
+        return [self.parse_ingredient(ingredient) for ingredient in ingredients]
+
+    def parse_ingredient(self, ingredient_str):
+        return parse_ingredient(ingredient_str)
 
     def ingredient_groups(self):
         return self.scraper.ingredient_groups()
@@ -32,9 +39,11 @@ class RecipeScraper:
     def yields(self):
         return self.scraper.yields()
 
-    def parsed_ingredients(self):
-        ingredients = self.scraper.ingredients()
-        return [self.parse_ingredient(ingredient) for ingredient in ingredients]
-
-    def parse_ingredient(self, ingredient_str):
-        return parse_ingredient(ingredient_str)
+    def total_time(self):
+        return self.scraper.total_time()
+    
+    def image(self):
+        return self.scraper.image()
+    
+    def links(self):
+        return self.scraper.links()
