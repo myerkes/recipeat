@@ -3,7 +3,7 @@ from recipe_scrapers._exceptions import WebsiteNotImplementedError
 from ingredient_parser import parse_ingredient
 import requests
 
-class CustomScraper:
+class RecipeScraper:
     def __init__(self, url):
         html = requests.get(url, headers={"User-Agent": f"Recipe Scraper"}).content
         try:
