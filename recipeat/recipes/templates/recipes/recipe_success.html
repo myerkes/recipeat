@@ -7,6 +7,10 @@
 <body>
     <h1>Recipe Submitted Successfully!</h1>
     <p>Your recipe has been saved.</p>
-    <a href="{% url 'submit_recipe' %}">Submit another recipe</a>
+    <!-- Link to the recipe detail page -->
+    <p><a href="{% url 'detail' recipe.id %}">View Recipe</a></p>
+
+    <!-- Optional link to submit another recipe -->
+    <p><a href="{% url 'submit_recipe' %}">Submit Another Recipe</a></p>
 </body>
 </html>

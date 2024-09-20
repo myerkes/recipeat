@@ -73,7 +73,7 @@ def submit_recipe(request):
                         text=instruction
                     )
 
-                return redirect('recipe_success')  # Redirect to a success page or recipe detail page
+                return redirect('recipe_success', recipe_id=recipe.id)  # Redirect to a success page or recipe detail page
 
             except Exception as e:
                 form.add_error('recipe_url', f"Error scraping the recipe: {str(e)}")
@@ -84,6 +84,9 @@ def submit_recipe(request):
     return render(request, 'recipes/submit_recipe.html', {'form': form})
 
 # views.py
-def recipe_success(request):
-    return render(request, 'recipes/recipe_success.html')
+def recipe_success(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    return render(request, "recipes/recipe_success.html", {
+            "recipe": recipe
+        })
 
