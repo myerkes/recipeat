@@ -23,7 +23,7 @@ class Ingredient(models.Model):
     unit = models.CharField(max_length=255)
     unit_text = models.CharField(max_length=255)
 
-class Instructions(models.Model):
+class Instruction(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     step = models.IntegerField()
     text = models.TextField()
