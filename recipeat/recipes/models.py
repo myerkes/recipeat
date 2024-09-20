@@ -13,7 +13,7 @@ class Recipe(models.Model):
 class Ingredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     comment = models.TextField()
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,)
     preparation = models.CharField(max_length=255)
     purpose = models.CharField(max_length=255)
     quantity = models.DecimalField(decimal_places=3,max_digits=7)
