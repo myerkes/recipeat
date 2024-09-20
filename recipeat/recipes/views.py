@@ -5,6 +5,7 @@ from django.template import loader
 from .models import Recipe, Ingredient, Instruction
 from .forms import RecipeURLForm
 from .utils.recipe_scraper import RecipeScraper
+from .utils.add_ingredient_quantities import add_ingredient_quantities
 
 from django.views.generic.edit import CreateView
 from recipes.forms import *
@@ -19,22 +20,12 @@ def detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     instructions = recipe.instruction_set.all()
     ingredients = recipe.ingredient_set.all()
+    updated_instructions = add_ingredient_quantities(instructions, ingredients)
     return render(request, "recipes/detail.html", {
         "recipe": recipe,
         "ingredients": ingredients,
-        "instructions": instructions
+        "instructions": updated_instructions
     })
-
-
-def submit(request, recipe_id):
-    return HttpResponse("You're voting on recipe %s." % recipe_id)
-
-# class RecipeCreate(CreateView):
-#     model = Recipe
-#     form_class = RecipeCreateForm
-#     template_name = 'recipes/submit_recipe_form.html'
-#     success_url = '../recipe'
-
 
 def submit_recipe(request):
     if request.method == 'POST':
@@ -59,7 +50,7 @@ def submit_recipe(request):
                 for idx, ingredient in enumerate(parsed_ingredients, start=1):
                     units = []
                     for amount in ingredient.amount:
-                        units.append(str(amount.unit))
+                        units.append(str(amount.text))
                     Ingredient.objects.create(
                         recipe=recipe,
                         comment = ingredient.comment if ingredient.comment else '',

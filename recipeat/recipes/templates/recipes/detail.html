@@ -13,7 +13,7 @@
     <h2>Ingredients</h2>
     <ul>
         {% for ingredient in ingredients %}
-            <li>{{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}</li>
+            <li>{{ ingredient.unit_text }} {{ ingredient.name }}</li>
         {% empty %}
             <p>No ingredients listed.</p>
         {% endfor %}
