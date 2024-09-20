@@ -205,6 +205,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-crispy-forms"
+version = "2.3"
+description = "Best way to have Django DRY forms"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_crispy_forms-2.3-py3-none-any.whl", hash = "sha256:efc4c31e5202bbec6af70d383a35e12fc80ea769d464fb0e7fe21768bb138a20"},
+    {file = "django_crispy_forms-2.3.tar.gz", hash = "sha256:2db17ae08527201be1273f0df789e5f92819e23dd28fec69cffba7f3762e1a38"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+
+[[package]]
 name = "extruct"
 version = "0.17.0"
 description = "Extract embedded metadata from HTML markup"
@@ -975,4 +989,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "46a778e545fd5842eb0677fd22cb0a3f263cbea68f16e1fbe4ba6b03996ff28a"
+content-hash = "6eba6f840e0c6202525795f80c3cfb471343f973593950c702e6fdfd8a4f61c7"

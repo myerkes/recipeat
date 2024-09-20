@@ -10,6 +10,7 @@ python = ">=3.10,<3.13"
 django = "^5.1.1"
 ingredient-parser-nlp = "^1.1.2"
 recipe-scrapers = "^15.1.0"
+django-crispy-forms = "^2.3"
 
 
 [build-system]
