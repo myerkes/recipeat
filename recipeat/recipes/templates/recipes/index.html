@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<a href="{% url 'submit_recipe' %}">Submit a Recipe</a>
 {% if latest_recipe_list %}
     <ul>
     {% for recipe in latest_recipe_list %}
-        <li><a href="/recipes/{{ recipe.id }}/">{{ recipe.title }}</a></li>
+    <h2>{{ recipe.title }}</h2>
+    <a href="/recipes/{{ recipe.id }}/"><img src="{{ recipe.image }}" alt="{{ recipe.title }}" style="padding: 5px; width: 300px;"></a>
     {% endfor %}
     </ul>
 {% else %}
