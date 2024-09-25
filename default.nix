@@ -31,7 +31,13 @@ let
     scripts = pkgs.lib.attrsets.attrValues scripts;
   };
 
-  scripts = with pkgs; { };
+  scripts = with pkgs; {
+    runserver = pkgs.pog {
+      name = "runserver";
+      description = "run the server using manage.py";
+      script = "python recipeat/manage.py runserver";
+    };
+  };
   paths = pkgs.lib.flatten [ (builtins.attrValues tools) ];
   env = python.env.overrideAttrs (_: {
     buildInputs = paths;

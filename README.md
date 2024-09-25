@@ -15,4 +15,4 @@ Recipeat is designed to make managing and cooking all your favorite recipes easi
 * Clone the repository to your local machine
 * Use poetry for environment management
 * Ensure the site_id in setting.py is set to 2 for your local machine
-* Run ```python recipeat/manage.py runserver``` to start the application
+* Run ```runserver``` to start the application
