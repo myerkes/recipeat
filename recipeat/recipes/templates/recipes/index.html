@@ -1,3 +1,7 @@
+{% extends './base.html' %}
+
+{% block content %}
+
 <a href="{% url 'submit_recipe' %}">Submit a Recipe</a>
 {% if latest_recipe_list %}
     <ul>
@@ -8,3 +12,5 @@
 {% else %}
     <p>No recipes are available.</p>
 {% endif %}
+
+{% endblock %}
