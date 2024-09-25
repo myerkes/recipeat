@@ -12,7 +12,45 @@ ingredient-parser-nlp = "^1.1.2"
 recipe-scrapers = "^15.1.0"
 django-crispy-forms = "^2.3"
 
+[tool.poetry.group.dev.dependencies]
+ptpython = "^3.0.29"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = [
+    ".direnv",
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pypackages__",
+    "conftest.py",
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN101",
+    "COM812",
+    "D200",
+    "D203",
+    "D212",
+    "D400",
+    "D403",
+    "D415",
+    "ERA001",
+    "FBT001",
+    "I001",
+    "S101",
+    "S104",
+    "T201",
+]
